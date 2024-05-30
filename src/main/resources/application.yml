@@ -1,0 +1,26 @@
+server:
+  port: 5050
+
+logging:
+  level:
+    root: INFO
+    org.springframework: OFF
+    ru.itmo.mobile_development_api: INFO
+
+
+spring:
+  main:
+    banner-mode: "off"
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rmp
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    url: jdbc:postgresql://localhost:5432/rmp
+    user: postgres
+    password: postgres
