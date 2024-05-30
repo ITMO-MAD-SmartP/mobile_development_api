@@ -113,7 +113,7 @@ public class MobileController {
     private GetGraphInfoResponse popUntilGetNeededResponse(Integer desiredRequestId) {
         while (true){
             var response = popOnes();
-            if (response.getRequestId().equals(desiredRequestId))
+            if (response != null && response.getRequestId().equals(desiredRequestId))
                 return response;
         }
     }
@@ -121,6 +121,8 @@ public class MobileController {
     @SneakyThrows
     private GetGraphInfoResponse popOnes() {
         var response = redisMessageUtil.rpop("queue:tlogs-responses");
+        if (response == null)
+            return null;
         return ObjectParser.readValue(response.toString(), GetGraphInfoResponse.class);
     }
 
