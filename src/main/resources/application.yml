@@ -24,3 +24,4 @@ spring:
     url: jdbc:postgresql://localhost:5432/rmp
     user: postgres
     password: postgres
+    baseline-on-migrate: true

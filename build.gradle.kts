@@ -30,6 +30,7 @@ dependencies {
     implementation ("org.postgresql:postgresql")
     //implementation ("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-core:9.22.0")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

@@ -5,12 +5,12 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RedisMessagePublisher {
+public class RedisMessageUtil {
 
     private final RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public RedisMessagePublisher(RedisTemplate<String, Object> redisTemplate) {
+    public RedisMessageUtil(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
@@ -20,5 +20,9 @@ public class RedisMessagePublisher {
 
     public void lpush(String key, Object value) {
         redisTemplate.opsForList().leftPush(key, value);
+    }
+
+    public Object rpop(String key) {
+        return redisTemplate.opsForList().rightPop(key);
     }
 }
